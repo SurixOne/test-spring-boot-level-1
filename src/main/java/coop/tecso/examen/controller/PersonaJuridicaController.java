@@ -10,16 +10,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import coop.tecso.examen.dto.PersonaJurídicaDto;
-import coop.tecso.examen.model.PersonaJurídica;
-import coop.tecso.examen.repository.PersonaJurídicaRepository;
+import coop.tecso.examen.dto.PersonaJuridicaDto;
+import coop.tecso.examen.model.PersonaJuridica;
+import coop.tecso.examen.repository.PersonaJuridicaRepository;
 
 @RestController
 @RequestMapping("/personaJuridica")
-public class PersonaJurídicaController {
+public class PersonaJuridicaController {
 
 	@Autowired
-	private PersonaJurídicaRepository personaJurídicaRepository;
+	private PersonaJuridicaRepository personaJurídicaRepository;
 	
 	//Delete all the legal persons 
 	@GetMapping("/deleteAll")
@@ -33,8 +33,8 @@ public class PersonaJurídicaController {
 	public String deleteByCuit(@RequestParam String cuit) {
 		String result = "";
 		Boolean existe = false;
-		PersonaJurídica p = new PersonaJurídica();
-		for (PersonaJurídica entity : personaJurídicaRepository.findAll()) {
+		PersonaJuridica p = new PersonaJuridica();
+		for (PersonaJuridica entity : personaJurídicaRepository.findAll()) {
 			if(entity.getCuit().equals(cuit)) {
 				p = entity;
 				existe = true;
@@ -54,14 +54,14 @@ public class PersonaJurídicaController {
 	public String add( @RequestParam String socialReason, @RequestParam String fundationYear, @RequestParam String cuit) throws Exception {
 		String result = "";
 		Boolean existe = false;
-		for (PersonaJurídica entity : personaJurídicaRepository.findAll()) {
+		for (PersonaJuridica entity : personaJurídicaRepository.findAll()) {
 			if(entity.getCuit().equals(cuit)) {
 				existe = true;
 			}
 		}
 		if(!existe) {
 			if(socialReason.length()<=100) {
-				PersonaJurídica p = new PersonaJurídica();
+				PersonaJuridica p = new PersonaJuridica();
 				p.setFundationYear(new SimpleDateFormat("yyyy").parse(fundationYear));
 				p.setCuit(cuit);
 				p.setSocialReason(socialReason);
@@ -82,8 +82,8 @@ public class PersonaJurídicaController {
 	public String updateByCuit( @RequestParam String socialReason, @RequestParam String fundationYear, @RequestParam String cuit) throws Exception {
 		String result = "";
 		Boolean existe = false;
-		PersonaJurídica p = new PersonaJurídica();
-		for (PersonaJurídica entity : personaJurídicaRepository.findAll()) {
+		PersonaJuridica p = new PersonaJuridica();
+		for (PersonaJuridica entity : personaJurídicaRepository.findAll()) {
 			if(entity.getCuit().equals(cuit)) {
 				existe = true;
 				p.setId(entity.getId());
@@ -106,11 +106,11 @@ public class PersonaJurídicaController {
 	}
 	// Get All the legal persons
 	@GetMapping("/findAll")
-	public List<PersonaJurídicaDto> findAll() {
+	public List<PersonaJuridicaDto> findAll() {
 		
-		List<PersonaJurídicaDto> result = new ArrayList<>();
-		for (PersonaJurídica entity : personaJurídicaRepository.findAll()) {
-			PersonaJurídicaDto dto = new PersonaJurídicaDto();
+		List<PersonaJuridicaDto> result = new ArrayList<>();
+		for (PersonaJuridica entity : personaJurídicaRepository.findAll()) {
+			PersonaJuridicaDto dto = new PersonaJuridicaDto();
 			dto.setId(entity.getId());
 			dto.setFundationYear(entity.getFundationYear());
 			dto.setSocialReason(entity.getSocialReason());
@@ -126,7 +126,7 @@ public class PersonaJurídicaController {
 	public String findByCuit(@RequestParam String cuit) {
 		
 		String result = "La persona juridica de cuit " + cuit + " no existe.";
-		for (PersonaJurídica entity : personaJurídicaRepository.findAll()) {
+		for (PersonaJuridica entity : personaJurídicaRepository.findAll()) {
 			if(entity.getCuit().equals(cuit)) {
 			result="Id: " + entity.getId() + ", fundacion: " + entity.getFundationYear() + ", razon social: " + entity.getSocialReason() + ", Cuit: " + entity.getCuit();
 			}

@@ -3,7 +3,7 @@ package coop.tecso.examen.dto;
 import java.io.Serializable;
 import java.util.Date;
 
-public class PersonaJurídicaDto  implements Serializable {
+public class PersonaJuridicaDto  implements Serializable {
 
 	private static final long serialVersionUID = -8901155893511467206L;
 	

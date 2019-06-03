@@ -3,7 +3,7 @@ package coop.tecso.examen.model;
 import javax.persistence.Entity;
 
 @Entity
-public class PersonaFísica extends AbstractPersistentObject {
+public class PersonaFisica extends AbstractPersistentObject {
 
 	private static final long serialVersionUID = -8901155893511467206L;
 	

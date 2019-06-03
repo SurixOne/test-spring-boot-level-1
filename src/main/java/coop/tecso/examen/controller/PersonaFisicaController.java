@@ -9,16 +9,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import coop.tecso.examen.dto.PersonaFísicaDto;
-import coop.tecso.examen.model.PersonaFísica;
-import coop.tecso.examen.repository.PersonaFísicaRepository;
+import coop.tecso.examen.dto.PersonaFisicaDto;
+import coop.tecso.examen.model.PersonaFisica;
+import coop.tecso.examen.repository.PersonaFisicaRepository;
 
 @RestController
 @RequestMapping("/personaFisica")
-public class PersonaFísicaController {
+public class PersonaFisicaController {
 
 	@Autowired
-	private PersonaFísicaRepository personaFísicaRepository;
+	private PersonaFisicaRepository personaFísicaRepository;
 	
 	//Delete all the physical persons 
 		@GetMapping("/deleteAll")
@@ -32,8 +32,8 @@ public class PersonaFísicaController {
 		public String deleteByCuit(@RequestParam String cuit) {
 			String result = "";
 			Boolean existe = false;
-			PersonaFísica p = new PersonaFísica();
-			for (PersonaFísica entity : personaFísicaRepository.findAll()) {
+			PersonaFisica p = new PersonaFisica();
+			for (PersonaFisica entity : personaFísicaRepository.findAll()) {
 				if(entity.getCuit().equals(cuit)) {
 					p = entity;
 					existe = true;
@@ -53,7 +53,7 @@ public class PersonaFísicaController {
 		public String add( @RequestParam String dni, @RequestParam String name, @RequestParam String surname, @RequestParam String cuit) throws Exception {
 			String result = "";
 			Boolean existe = false;
-			for (PersonaFísica entity : personaFísicaRepository.findAll()) {
+			for (PersonaFisica entity : personaFísicaRepository.findAll()) {
 				if(entity.getCuit().equals(cuit)) {
 					existe = true;
 				}
@@ -63,7 +63,7 @@ public class PersonaFísicaController {
 					result ="El nombre no puede superar los 80 caracteres y el largo del apellido no puede superar los 250 caracteres, caracteres actuales - nombre: " + name.length() + ", apellido: "+ surname.length();
 				}
 				else {
-					PersonaFísica p = new PersonaFísica();
+					PersonaFisica p = new PersonaFisica();
 					p.setDni(dni);
 					p.setCuit(cuit);
 					p.setName(name);
@@ -82,8 +82,8 @@ public class PersonaFísicaController {
 		public String updateByCuit( @RequestParam String dni, @RequestParam String name, @RequestParam String surname, @RequestParam String cuit) throws Exception {
 			String result = "";
 			Boolean existe = false;
-			PersonaFísica p = new PersonaFísica();
-			for (PersonaFísica entity : personaFísicaRepository.findAll()) {
+			PersonaFisica p = new PersonaFisica();
+			for (PersonaFisica entity : personaFísicaRepository.findAll()) {
 				if(entity.getCuit().equals(cuit)) {
 					existe = true;
 					p.setId(entity.getId());
@@ -107,11 +107,11 @@ public class PersonaFísicaController {
 		}
 		// Get All physical persons
 		@GetMapping("/findAll")
-		public List<PersonaFísicaDto> findAll() {
+		public List<PersonaFisicaDto> findAll() {
 			
-			List<PersonaFísicaDto> result = new ArrayList<>();
-			for (PersonaFísica entity : personaFísicaRepository.findAll()) {
-				PersonaFísicaDto dto = new PersonaFísicaDto();
+			List<PersonaFisicaDto> result = new ArrayList<>();
+			for (PersonaFisica entity : personaFísicaRepository.findAll()) {
+				PersonaFisicaDto dto = new PersonaFisicaDto();
 				dto.setId(entity.getId());
 				dto.setDni(entity.getDni());
 				dto.setName(entity.getName());
@@ -128,7 +128,7 @@ public class PersonaFísicaController {
 		public String findByCuit(@RequestParam String cuit) {
 			
 			String result = "La persona fisica de cuit " + cuit + " no existe.";
-			for (PersonaFísica entity : personaFísicaRepository.findAll()) {
+			for (PersonaFisica entity : personaFísicaRepository.findAll()) {
 				if(entity.getCuit().equals(cuit)) {
 				result="Id: " + entity.getId() + ", nombre: " + entity.getName() + ", Apellido: " + entity.getSurname() + ", Dni: " + entity.getDni() + ", Cuit: " + entity.getCuit();
 				}

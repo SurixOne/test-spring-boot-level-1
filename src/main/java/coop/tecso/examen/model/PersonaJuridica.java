@@ -6,7 +6,7 @@ import javax.persistence.Entity;
 
 
 @Entity
-public class PersonaJurídica extends AbstractPersistentObject {
+public class PersonaJuridica extends AbstractPersistentObject {
 
 	private static final long serialVersionUID = -8901155893511467206L;
 	

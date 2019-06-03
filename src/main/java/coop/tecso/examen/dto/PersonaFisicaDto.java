@@ -2,7 +2,7 @@ package coop.tecso.examen.dto;
 
 import java.io.Serializable;
 
-public class PersonaFísicaDto  implements Serializable {
+public class PersonaFisicaDto  implements Serializable {
 
 	private static final long serialVersionUID = -8901155893511467206L;
 	
