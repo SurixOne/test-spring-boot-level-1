@@ -1,6 +1,6 @@
 # test-spring-boot-level-1
 
-#PERSONAS JURÍDICAS
+## PERSONAS JURÍDICAS
 
 Agregar una persona jurídica con los siguientes campos:
 	Razón social : MySocialReason
@@ -97,7 +97,7 @@ curl -X GET "http://localhost:8080/api/personaJuridica/deleteAll"
 ---
 
 
-##PERSONAS FÍSICAS
+## PERSONAS FÍSICAS
 
 
 Agregar una persona física con los siguientes campos:
