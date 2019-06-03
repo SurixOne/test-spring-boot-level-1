@@ -106,6 +106,7 @@ Agregar una persona física con los siguientes campos:
 	Nombre : Edgardo
 	Apellido: Alvarez
 	Cuit: 20426574315
+	
 | Dni      | Nombre  | Apellido | Cuit        |
 |:--------:|:-------:|:--------:|:-----------:|
 | 42657431 | Edgardo | Alvarez  | 20426574315 |
