@@ -4,10 +4,9 @@
 
 Agregar una persona jurídica con los siguientes campos:
 
-	Razón social : MySocialReason
-	Año de fundación: 2000
-	Cuit: 20426574315
-	
+| Razón social   | Año de fundación | Cuit        |
+|:--------------:|:----------------:|:-----------:|
+| MySocialReason | 2000             | 20426574315 |	
   
 ```
 curl -X GET "http://localhost:8080/api/personaJuridica/add?socialReason=MySocialReason&fundationYear=2000&cuit=20426574315"
@@ -107,6 +106,9 @@ Agregar una persona física con los siguientes campos:
 	Nombre : Edgardo
 	Apellido: Alvarez
 	Cuit: 20426574315
+| Dni      | Nombre  | Apellido | Cuit        |
+|:--------:|:-------:|:--------:|:-----------:|
+| 42657431 | Edgardo | Alvarez  | 20426574315 |
 
 ```
 curl -X GET "http://localhost:8080/api/personaFisica/add?dni=42657431&name=Edgardo&surname=Alvarez&cuit=20426574315"
