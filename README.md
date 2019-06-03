@@ -102,10 +102,6 @@ curl -X GET "http://localhost:8080/api/personaJuridica/deleteAll"
 
 
 Agregar una persona física con los siguientes campos:
-	Dni: 42657431
-	Nombre : Edgardo
-	Apellido: Alvarez
-	Cuit: 20426574315
 	
 | Dni      | Nombre  | Apellido | Cuit        |
 |:--------:|:-------:|:--------:|:-----------:|
