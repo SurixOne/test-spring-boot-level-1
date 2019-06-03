@@ -1,15 +1,15 @@
 # test-spring-boot-level-1
 
-**PERSONAS JURÍDICAS
+**PERSONAS JURÍDICAS**
 
 Agregar una persona jurídica con los siguientes campos:
 	Razón social : MySocialReason
 	Año de fundación: 2000
 	Cuit: 20426574315
   
-´´´
+'''
 curl -X GET "http://localhost:8080/api/personaJuridica/add?socialReason=MySocialReason&fundationYear=2000&cuit=20426574315"
-´´´
+'''
 
 ---
 
