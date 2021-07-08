@@ -194,7 +194,3 @@ eliminar todas las personas físicas existentes
 ```
 curl -X GET "http://localhost:8080/api/personaFisica/deleteAll"
 ```
-
----
-
-mi mail es martuslalv@hotmail.com
